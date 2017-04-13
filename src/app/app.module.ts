@@ -41,6 +41,8 @@ import { AddDelivererComponent } from './add-deliverer/add-deliverer.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { OrderSortPipe } from './order-sort.pipe';
+import { CartsService } from './carts.service';
+import { StripeFormComponent } from './stripe-form/stripe-form.component';
 
 
 
@@ -86,6 +88,7 @@ export const firebaseConfig = {
     AddDelivererComponent,
     AddCustomerComponent,
     OrderSortPipe,
+    StripeFormComponent,
 
   ],
   imports: [
@@ -98,7 +101,7 @@ export const firebaseConfig = {
       apiKey: masterApiKeys.googleMapsApiKey
     })
   ],
-  providers: [AuthService],
+  providers: [AuthService, DataService, CartsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

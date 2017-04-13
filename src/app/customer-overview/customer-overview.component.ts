@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Order } from '../order.model';
 import { MenuItem } from "../menu-item.model";
 import { OrderDetail } from "../order-detail.model";
+import { CartsService} from './../carts.service';
 
 @Component({
   selector: 'app-customer-overview',
@@ -26,12 +27,14 @@ export class CustomerOverviewComponent implements OnInit {
   public selectedMenuItems;
   public order = new Order();
   public editValidationMessage = '';
+  public carts: any = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private location: Location,
-    private dataService: DataService) { }
+    private dataService: DataService,
+    private cartsService: CartsService) { }
 
   ngOnInit() {
     this.foodCarts = this.dataService.getFoodCarts();
@@ -92,5 +95,12 @@ export class CustomerOverviewComponent implements OnInit {
 
 
   }
+
+  showCarts(zip){
+    this.cartsService.getAllCarts(zip).subscribe(res => {
+      this.carts = res;
+    });
+  }
+
 
 }

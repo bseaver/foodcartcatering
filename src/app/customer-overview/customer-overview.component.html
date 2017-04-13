@@ -80,3 +80,19 @@
     </div>
   </div>
 </div> -->
+
+<app-stripe-form></app-stripe-form>
+<br>
+<br>
+
+<input #zipcode>
+<button (click)="showCarts(zipcode.value)">Find Food Carts</button>
+
+<div class="well" *ngFor="let cart of carts">
+
+    <h2>{{cart.name}}</h2>
+    <h3>Rating: {{cart.rating}}</h3>
+    <h3>Review Count: {{cart.review_count}}</h3>
+    <h4>Location: {{cart.location.display_address[0]}},  {{cart.location.display_address[1]}}</h4>
+
+</div>
