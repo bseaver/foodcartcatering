@@ -10,12 +10,12 @@ import { DataService } from './data.service';
   providers: [DataService]
 })
 export class AppComponent {
-  private isLoggedIn: Boolean=true;
-  // private isLoggedIn: Boolean;
-  private userDisplayName: string;
-  private userEmail: string;
-  private userType: string;
-  private partnerID: string;
+  isLoggedIn: Boolean=true;
+  // isLoggedIn: Boolean;
+  userDisplayName: string;
+  userEmail: string;
+  userType: string;
+  partnerID: string;
 
 
   constructor(public authService: AuthService, private router: Router, private dataService: DataService) {

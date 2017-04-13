@@ -77,6 +77,10 @@ export class CustomerOverviewComponent implements OnInit {
     this.order.foodCartID = this.selectedFoodCart.$key;
 
     // Validation
+    if (!this.customer.address) {
+      this.editValidationMessage = 'Please click Account and add your Address (and Name and Phone too!).';
+      return;
+    }
     this.editValidationMessage = 'Cart, item(s) and delivery date and time are required.';
     if (!this.order.requestedDeliveryTime) {
       return;
